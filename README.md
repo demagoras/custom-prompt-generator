@@ -2,6 +2,8 @@
 
 A customisable **prompt generator** built with HTML, CSS, and JavaScript. This project allows users to create and generate custom prompts, helping artists, writers, and creators overcome creative blocks and explore new ideas.
 
+<img src="https://github.com/user-attachments/assets/ea062af5-022d-4e3c-8cd0-09533370454b" alt="Screenshot of application" width="350">
+
 ## Features
 
 - **Customizable Prompt Categories**: Users can define custom categories and input their own options. Easily add or remove categories dynamically to customise the prompt generation.
