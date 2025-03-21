@@ -1,29 +1,54 @@
-// Lists for subjects, themes, and colors
-const subjects = ['cat', 'flower', 'apple', 'chair'];
-const themes = ['rainforest', 'steampunk', 'futuristic', 'horror'];
-const colors = ['blue', 'red', 'gold', 'lime', 'turquoise', 'violet', 'black'];
+// Add button function
+function addButton() {
+    const categoriesDiv = document.getElementById('categories');
 
-function generatePrompt() {
-    // Choose item(s) in lists at random
-    const subject = subjects[Math.floor(Math.random() * subjects.length)];
-    const theme = themes[Math.floor(Math.random() * themes.length)];
+    // Create category div
+    const categoryDiv = document.createElement('div');
+    categoryDiv.classList.add('category');
 
-    // Shuffle array in a random order, then pick the first three items
-    const shuffledColors = colors.sort(() => 0.5 - Math.random());
-    const chosenColorPalette = shuffledColors.slice(0, 3);
-    const colorPalette = chosenColorPalette.join(', ');
+    // Create category name input box
+    const categoryNameInput = document.createElement('input');
+    categoryNameInput.type = 'text';
+    categoryNameInput.placeholder = 'Category name (e.g., Genre, Theme)';
+    categoryNameInput.classList.add('categoryName');
 
-    return { subject, theme, colorPalette };
+    // Create options input box
+    const categoryOptionsInput = document.createElement('input');
+    categoryOptionsInput.type = 'text';
+    categoryOptionsInput.placeholder = 'Enter options (comma-separated)';
+    categoryOptionsInput.classList.add('categoryOptions');
+
+    // Append inputs to category div and display them
+    categoryDiv.appendChild(categoryNameInput);
+    categoryDiv.appendChild(categoryOptionsInput);
+    categoriesDiv.appendChild(categoryDiv);
 }
 
-function updateUI() {
-    console.log("generatePrompt() output:", generatePrompt()); 
-    const { subject, theme, colorPalette } = generatePrompt();
+// Remove button function
+function removeButton() {
+    const categoriesDiv = document.getElementById('categories');
+    const categoryDivs = document.querySelectorAll('.category');
 
-    // Update HTML with new random values
-    document.getElementById('subject').textContent = subject;
-    document.getElementById('theme').textContent = theme;
-    document.getElementById('colorPalette').textContent = colorPalette;
+    // Only removes the last category, if there are any
+    if (categoryDivs.length > 0) {
+        categoriesDiv.removeChild(categoryDivs[categoryDivs.length - 1]);
+    }
 }
 
-document.getElementById('generatorButton').addEventListener('click', updateUI);
+// Generate new prompt button function
+function generateButton() {
+    const categoryDivs = document.querySelectorAll('.category');
+    const outputDiv = document.getElementById('output');
+    outputDiv.innerHTML = ""; // Clear previous output
+
+    // Goes through each category and generates a random choice from the options
+    categoryDivs.forEach(categoryDiv => {
+        const name = categoryDiv.querySelector('.categoryName').value.trim();
+        const options = categoryDiv.querySelector('.categoryOptions').value.trim().split(",");
+
+        if (name && options.length > 0) {
+            const randomChoice = options[Math.floor(Math.random() * options.length)].trim();
+            outputDiv.innerHTML += `<p><strong>${name}:</strong> ${randomChoice}</p>`;
+        }
+    });
+}
