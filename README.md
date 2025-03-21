@@ -1,28 +1,34 @@
-# prompt-generator
+# Custom Prompt Generator
 
-A simple **Prompt Generator** for art built with HTML, CSS, and JavaScript. This project randomly generates art prompts consisting of a subject, a theme, and a color palette, helping artists overcome creative blocks and explore new ideas.
+A customisable **prompt generator** built with HTML, CSS, and JavaScript. This project allows users to create and generate custom prompts, helping artists, writers, and creators overcome creative blocks and explore new ideas.
 
 ## Features
 
-- **Randomized Art Prompts**: Generates a new subject, theme, and color palette with each button press.
+- **Customizable Prompt Categories**: Users can define custom categories and input their own options. Easily add or remove categories dynamically to customise the prompt generation.
 - **User-Friendly Interface**: A clean, dark-mode inspired UI with responsive design.
 - **Lightweight & Fast**: No external libraries—just pure HTML, CSS, and JavaScript.
 - **Responsive Design**: Works across different screen sizes and devices.
-- **Expandable**: Easy to modify or integrate into a larger creative project.
+- **Randomized Prompts**: Generates random selections from user-defined categories, providing unique prompts each time
 
-## Demo
+## Live Demo
 
-[Live Demo](https://raw.githack.com/demagoras/prompt-generator/main/index.html)
+Try it yourself at this [live demo](https://raw.githack.com/demagoras/custom-prompt-generator/main/index.html).
+
+Thank you to [raw.githack.com](https://raw.githack.com/) for providing this functionality!
 
 ## Setup & Usage
 
 1. **Clone the repository:**
    ```sh
-   git clone https://github.com/yourusername/art-prompt-generator.git
+   git clone https://github.com/yourusername/custom-prompt-generator.git
    ```
 2. **Open the project folder:**
    ```sh
-   cd art-prompt-generator
+   cd custom-prompt-generator
    ```
 3. **Run the project:**
    - Simply open `index.html` in your browser—no setup required!
+
+## Key Changes:
+- **Custom Categories**: Users can create custom categories such as genre, color palette, subject, etc.
+- **Dynamic Interaction**: Buttons to add and remove categories, allowing the user to customize the prompt creation.
