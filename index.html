@@ -8,13 +8,15 @@
     </head>
     <body>
         <div class="container">
-            <h1>Art Prompt Generator</h1>
-            <div class="prompt">
-                <p><strong>Subject:</strong> <span id="subject"></span></p>
-                <p><strong>Theme:</strong> <span id="theme"></span></p>
-                <p><strong>Color palette:</strong> <span id="colorPalette"></span></p>
-            </div>
-            <button id="generatorButton">Generate New Prompt</button>
+            <h1>Custom Prompt Generator</h1>
+
+            <div id="categories"></div>
+    
+            <button id="addCategoryButton">➕ Add Category</button>
+            <button id="removeCategoryButton">➖ Remove Category</button>
+            <button id="generateButton">🎲 Generate Prompt</button>
+    
+            <div class="prompt" id="output"></div>
         </div>
         
         <script src="script.js"></script>
