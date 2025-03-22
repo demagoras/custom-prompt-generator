@@ -52,3 +52,50 @@ function generateButton() {
         }
     });
 }
+
+/*
+ * Checks for duplicate category entries dynamically while the user is typing.
+ * An event listener is added to the document that listens for any input event.
+ * A debounced function on the checkDuplicates function is called in order to
+ * limit the frequency of checks.
+*/
+function checkDuplicates(event) {
+    const categoryInputs = document.querySelectorAll('.categoryName');
+
+    // Reset border coloring for all inputs
+    categoryInputs.forEach(input => {
+        input.style.border = '';
+    });
+
+    // Loop for duplicates comparing each input box to another
+    categoryInputs.forEach(input => {
+        categoryInputs.forEach(compareInput => {
+            if (input !== compareInput
+                && input.value.trim() === compareInput.value.trim()
+                && input.value.trim() !== '')
+                {
+                input.style.border = '4px solid red';
+                compareInput.style.border = '4px solid red';
+            }
+        });
+    });
+}
+
+// Debounce function to limit the frequency of input checks
+function debounce(func, delay) {
+    let timeout;
+    return function (...args) {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func(...args), delay);
+    };
+}
+
+// Debounce in milliseconds
+const debouncedCheckDuplicates = debounce(checkDuplicates, 500);
+
+// Whenever the user inputs something, check for duplicates everywhere
+document.addEventListener('input', function (event) {
+    if (event.target.classList.contains('categoryName')) {
+        debouncedCheckDuplicates(event);
+    }
+});
