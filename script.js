@@ -1,26 +1,34 @@
-// Add button function
-function addButton() {
-    const categoriesDiv = document.getElementById('categories');
-
-    // Create category div
+/* 
+* Creates a new category div element with two input fields for
+* category name and options. Used in the addButton and the
+* importJSON functions.
+*/
+function createCategory(name = '', options = '') {
     const categoryDiv = document.createElement('div');
     categoryDiv.classList.add('category');
 
-    // Create category name input box
     const categoryNameInput = document.createElement('input');
     categoryNameInput.type = 'text';
     categoryNameInput.placeholder = 'Category name (e.g., Genre, Theme)';
     categoryNameInput.classList.add('categoryName');
+    categoryNameInput.value = name;
 
-    // Create options input box
     const categoryOptionsInput = document.createElement('input');
     categoryOptionsInput.type = 'text';
     categoryOptionsInput.placeholder = 'Enter options (comma-separated)';
     categoryOptionsInput.classList.add('categoryOptions');
+    categoryOptionsInput.value = options;
 
-    // Append inputs to category div and display them
     categoryDiv.appendChild(categoryNameInput);
     categoryDiv.appendChild(categoryOptionsInput);
+
+    return categoryDiv;
+}
+
+// Add button function
+function addButton() {
+    const categoriesDiv = document.getElementById('categories');
+    const categoryDiv = createCategory(); // Create an empty category
     categoriesDiv.appendChild(categoryDiv);
 }
 
@@ -99,3 +107,60 @@ document.addEventListener('input', function (event) {
         debouncedCheckDuplicates(event);
     }
 });
+
+// Export the user's custom prompt details as a JSON file
+function exportJSON() {
+    const categories = [];
+    const categoryDivs = document.querySelectorAll('.category');
+
+    categoryDivs.forEach(categoryDiv => {
+        const name = categoryDiv.querySelector('.categoryName').value.trim();
+        const options = categoryDiv.querySelector('.categoryOptions').value.trim().split(',');
+
+        if (name.length > 0 && options.length > 0) {
+            categories.push({ name, options: options.map(option => option.trim()) });
+        }
+    });
+    
+    // Create a download link that automatically downloads the JSON file
+    const json = JSON.stringify(categories, undefined, 4);
+    const blob = new Blob([json], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'prompt_generator.json';
+    a.click();
+    URL.revokeObjectURL(url); // Clean up the URL object
+}
+
+// Import the user's JSON file and display everything
+function importJSON() {
+    const input = document.createElement('input');
+    input.type = 'file';
+    input.accept = '.json';
+
+    input.addEventListener('change', function (event) {
+        const file = event.target.files[0];
+        if (!file) return;
+
+        const reader = new FileReader();
+        reader.onload = () => {
+            try {
+                const categories = JSON.parse(reader.result);
+                const categoriesDiv = document.getElementById('categories');
+                categoriesDiv.innerHTML = ''; // Clear previous categories
+
+                categories.forEach(category => {
+                    const categoryDiv = createCategory(category.name, category.options.join(', '));
+                    categoriesDiv.appendChild(categoryDiv);
+                });
+            } catch (error) {
+                console.error('Error parsing JSON:', error);
+            }
+        };
+        reader.readAsText(file);
+    });
+
+    input.click();
+}

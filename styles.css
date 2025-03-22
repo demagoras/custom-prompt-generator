@@ -16,6 +16,7 @@ body {
 }
 
 .container {
+    position: relative;
     text-align: center;
     padding: 20px; /* Allows add and remove buttons to be side by side */
     background-color: #2b2b2b;
@@ -47,8 +48,23 @@ button:hover {
     background-color: #ff7f32;
 }
 
+button.JSON-button {
+    position: absolute;
+    background-color: transparent;
+    padding: 6px;
+    bottom: 0px;
+}
+
+button.JSON-button.export-button {
+    right: 35px;
+}
+
+button.JSON-button.import-button {
+    right: 0px;
+}
+
 .prompt {
-    margin-top: 20px;
+    margin-bottom: 25px;
     font-size: 1.2rem;
     line-height: 1.6;
 }
