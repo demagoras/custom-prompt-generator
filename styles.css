@@ -48,18 +48,22 @@ button:hover {
     background-color: #ff7f32;
 }
 
-button.JSON-button {
+button.extra-button {
     position: absolute;
     background-color: transparent;
     padding: 6px;
     bottom: 0px;
 }
 
-button.JSON-button.export-button {
+button.extra-button.delete-button {
+    left: 0px;
+}
+
+button.extra-button.export-button {
     right: 35px;
 }
 
-button.JSON-button.import-button {
+button.extra-button.import-button {
     right: 0px;
 }
 

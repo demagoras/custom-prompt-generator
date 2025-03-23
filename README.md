@@ -2,7 +2,7 @@
 
 A customisable **prompt generator** built with HTML, CSS, and JavaScript. This project allows users to create and generate custom prompts, helping artists, writers, and creators overcome creative blocks and explore new ideas. You may also export the prompt generators you created for later use or for sharing with others!
 
-<img src="https://github.com/user-attachments/assets/9af912c4-da25-458a-a3b6-3aa65f30212e" alt="Screenshot of application" width="300">
+<img src="https://github.com/user-attachments/assets/726785ac-7d66-4c0c-b64a-e9678483d2be" alt="Screenshot of application" width="300">
 
 ## Features
 
@@ -34,4 +34,4 @@ Thank you to [raw.githack.com](https://raw.githack.com/) for providing this func
 ## Key Changes:
 - **Custom Categories**: Users can create custom categories such as genre, color palette, subject, etc.
 - **Dynamic Interaction**: Buttons to add and remove categories, allowing the user to customize the prompt creation.
-- **Export and Import**: Users can save their created categories and options as a well-structured JSON file and later import them back. This can be done with the &#x1F4BE; and &#x1F4C1; icons on the lower right, respectively.
+- **Export and Import**: Users can save their created categories and options as a well-structured JSON file and later import them back. This can be done with the &#x1F4BE; and &#x1F4C1; icons on the lower right, respectively. It is also possible to start over with the &#x1F6D1; icon.

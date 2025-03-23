@@ -108,6 +108,14 @@ document.addEventListener('input', function (event) {
     }
 });
 
+// Delete all categories
+function deleteButton() {
+    const categoriesDiv = document.getElementById('categories');
+    const outputDiv = document.getElementById('output');
+    categoriesDiv.innerHTML = '';
+    outputDiv.innerHTML = '';
+}
+
 // Export the user's custom prompt details as a JSON file
 function exportJSON() {
     const categories = [];
