@@ -22,7 +22,7 @@ Thank you to [raw.githack.com](https://raw.githack.com/) for providing this func
 
 1. **Clone the repository:**
    ```sh
-   git clone https://github.com/yourusername/custom-prompt-generator.git
+   git clone https://github.com/demagoras/custom-prompt-generator.git
    ```
 2. **Open the project folder:**
    ```sh
