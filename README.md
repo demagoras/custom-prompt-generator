@@ -12,12 +12,6 @@ A customisable **prompt generator** built with HTML, CSS, and JavaScript. This p
 - **Responsive Design**: Works across different screen sizes and devices.
 - **Randomized Prompts**: Generates random selections from user-defined categories, providing unique prompts each time
 
-## Live Demo
-
-Try it yourself at this [live demo](https://raw.githack.com/demagoras/custom-prompt-generator/main/index.html).
-
-Thank you to [raw.githack.com](https://raw.githack.com/) for providing this functionality!
-
 ## Setup & Usage
 
 1. **Clone the repository:**
